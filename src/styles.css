@@ -1,18 +1,47 @@
+:root{
+    --darkPink: #F94892;
+    --orange: #ff9966;
+    --white: #fff;
+    --black: #000;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: var(--white) var(--darkPink);
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--darkPink);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--white);
+    border: 3px solid var(--darkPink);
+}
+
+.header{
+    width: 100%;
+    height: 25vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
 }
 
 body {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(45deg, rgba(30, 61, 89, 1) 0%, rgba(245, 240, 225, 1) 35%, rgba(255, 110, 64, 1) 100%);
-}
-
-h1 {
-    text-align: center;
-    padding: 20px 0;
+    background: linear-gradient(40deg, var(--darkPink), var(--orange));
+    background-attachment: fixed;
 }
 
 .div{
@@ -20,25 +49,49 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 10px 0 10px;
+    margin-top: 60px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .border{
-    border: 1px solid #1e3d59;
     margin: 20px;
     width: 280px;
     height: 190px;
-    border-radius: 10px;
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding-left: 15px;
-    line-height: 1.7;
+    line-height: 1.7; 
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.border > p:nth-child(1){
-    font-weight: 600;
-    text-transform: uppercase;
+p span{
+    color: var(--black);
+}
+
+p:not(span){
+    color: var(--darkPink);
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 15vh;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 0vw));
+    }
+    
+    h1{
+        font-size: 25px;
+    }
+
+    .div {
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
